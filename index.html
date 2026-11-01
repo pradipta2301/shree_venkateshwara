@@ -9,17 +9,29 @@
   <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: #f8fafc;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      color: #0f172a;
-      padding: 1.2rem 2rem 2rem 2rem;
-      max-width: 1600px;
-      margin: 0 auto;
+    :root {
+      --primary: #1d4ed8;
+      --primary-dark: #1e40af;
+      --accent: #f59e0b;
+      --bg-slate: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
     }
 
-    /* ---------- Hero Header ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-slate);
+      font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-main);
+      padding: 1.5rem 2rem 3rem 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Hero Header (Keeping Your SVE Image Pristine) ---------- */
     .hero-banner {
       position: relative;
       height: 380px;
@@ -29,47 +41,69 @@
       background-image: url('./Gemini_Generated_Image.png');
       background-size: cover;
       background-position: right center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.15);
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .hero-overlay {
       position: absolute;
-      top: 0; left: 0; width: 65%; height: 100%;
-      background: linear-gradient(90deg, #020617 25%, rgba(2,6,23,0.85) 60%, transparent 100%);
+      top: 0; left: 0; width: 68%; height: 100%;
+      background: linear-gradient(90deg, rgba(2, 6, 23, 0.95) 30%, rgba(2, 6, 23, 0.75) 75%, transparent 100%);
     }
     .hero-content {
       position: absolute;
-      top: 65px; left: 45px;
+      top: 55px; left: 50px;
       color: white;
-      max-width: 650px;
+      max-width: 680px;
       z-index: 2;
     }
     .hero-eyebrow {
-      font-size: 0.85rem; font-weight: 700; letter-spacing: 2px;
-      color: #bfdbfe; margin-bottom: 8px; text-transform: uppercase;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 2.5px;
+      color: #93c5fd; margin-bottom: 10px; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: inline-block; width: 8px; height: 8px; background: #fbbf24; border-radius: 50%;
     }
     .hero-title {
-      font-size: 2.8rem; font-weight: 800; line-height: 1.1;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      font-size: 2.7rem; font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.5px; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
     .hero-sub {
-      color: #dbeafe; font-size: 1.08rem; margin-top: 14px; line-height: 1.5;
+      color: #cbd5e1; font-size: 1.05rem; margin-top: 14px; line-height: 1.5; font-weight: 400;
     }
     .hero-pills {
-      margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
     }
     .hero-pill {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; color: #e2e8f0;
+      backdrop-filter: blur(4px);
     }
     .hero-download-btn {
-      background: #fbbf24; color: #020617; font-weight: 800;
-      padding: 7px 16px; border-radius: 20px; font-size: 0.82rem;
-      text-decoration: none; transition: 0.2s;
-      box-shadow: 0 4px 12px rgba(251,191,36,0.35);
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #020617; font-weight: 800;
+      padding: 8px 18px; border-radius: 20px; font-size: 0.82rem;
+      text-decoration: none; transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+      display: inline-flex; align-items: center; gap: 6px;
     }
-    .hero-download-btn:hover { background: #f59e0b; transform: translateY(-1px); }
+    .hero-download-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6); }
+
+    /* ---------- Quick Category Filter Pills ---------- */
+    .quick-categories {
+      display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 20px;
+      scrollbar-width: thin;
+    }
+    .cat-chip {
+      background: white; border: 1px solid var(--border-color); color: var(--text-muted);
+      padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; white-space: nowrap; transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .cat-chip:hover { border-color: var(--primary); color: var(--primary); }
+    .cat-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 
     /* ---------- KPI Cards ---------- */
     .kpi-grid {
@@ -79,168 +113,187 @@
       margin-bottom: 24px;
     }
     .kpi-card {
-      background: white; border: 1px solid #e2e8f0; border-radius: 12px;
-      padding: 15px 18px; min-height: 96px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px;
+      padding: 18px 20px; min-height: 100px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
       display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .kpi-icon { font-size: 1.25rem; margin-bottom: 5px; }
-    .kpi-label { font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-    .kpi-value { font-size: 1.65rem; color: #0f172a; font-weight: 800; line-height: 1.2; }
-    .kpi-blue { border-top: 4px solid #2563eb; }
-    .kpi-green { border-top: 4px solid #16a34a; }
-    .kpi-orange { border-top: 4px solid #f59e0b; }
-    .kpi-cyan { border-top: 4px solid #0891b2; }
+    .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+    .kpi-icon { font-size: 1.3rem; margin-bottom: 6px; }
+    .kpi-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+    .kpi-value { font-size: 1.7rem; color: var(--text-main); font-weight: 800; line-height: 1.2; margin-top: 2px; }
+    .kpi-blue { border-left: 4px solid #2563eb; }
+    .kpi-green { border-left: 4px solid #16a34a; }
+    .kpi-orange { border-left: 4px solid #f59e0b; }
+    .kpi-cyan { border-left: 4px solid #0891b2; }
 
     /* ---------- Revolving Animation ---------- */
-    .revolving-container { position: relative; height: 50px; overflow: hidden; }
+    .revolving-container { position: relative; height: 52px; overflow: hidden; }
     .revolve-item { position: absolute; width: 100%; top: 0; left: 0; animation: flip 6s infinite ease-in-out; }
-    .item-2 { animation-delay: 3s; opacity: 0; transform: translateY(15px); }
+    .item-2 { animation-delay: 3s; opacity: 0; transform: translateY(12px); }
     @keyframes flip {
       0%, 40% { opacity: 1; transform: translateY(0px); }
-      45%, 50% { opacity: 0; transform: translateY(-15px); }
-      90%, 95% { opacity: 0; transform: translateY(15px); }
+      45%, 50% { opacity: 0; transform: translateY(-12px); }
+      90%, 95% { opacity: 0; transform: translateY(12px); }
       100% { opacity: 1; transform: translateY(0px); }
     }
 
     /* ---------- Filter Bar ---------- */
     .filter-heading {
-      color: #020617; font-size: 1.15rem; font-weight: 800; margin-bottom: 12px;
+      color: var(--text-main); font-size: 1.1rem; font-weight: 800; margin-bottom: 12px;
       display: flex; justify-content: space-between; align-items: center;
     }
     .filter-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       background: white;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
     .filter-group label {
       display: block;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      color: #020617;
+      color: #334155;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       margin-bottom: 6px;
     }
     .filter-group input, .filter-group select {
       width: 100%;
-      padding: 9px 11px;
-      border-radius: 8px;
+      padding: 10px 12px;
+      border-radius: 9px;
       border: 1px solid #cbd5e1;
       background: #f8fafc;
       font-size: 0.85rem;
-      color: #0f172a;
+      color: var(--text-main);
       outline: none;
-      transition: 0.15s;
+      transition: all 0.2s ease;
     }
     .filter-group input:focus, .filter-group select:focus {
-      border-color: #2563eb;
+      border-color: var(--primary);
       background: #fff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     /* ---------- Tabs ---------- */
     .tabs-bar {
       display: flex;
-      gap: 24px;
-      border-bottom: 2px solid #e2e8f0;
-      margin-bottom: 20px;
+      gap: 30px;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 22px;
     }
     .tab-btn {
       background: none; border: none; cursor: pointer;
-      font-size: 1.05rem; font-weight: 700; color: #64748b;
-      padding: 10px 4px; border-bottom: 3px solid transparent;
-      margin-bottom: -2px; transition: 0.2s;
+      font-size: 1.02rem; font-weight: 700; color: var(--text-muted);
+      padding: 12px 4px; border-bottom: 3px solid transparent;
+      margin-bottom: -2px; transition: color 0.2s ease;
     }
     .tab-btn.active {
-      color: #2563eb;
-      border-bottom-color: #2563eb;
+      color: var(--primary);
+      border-bottom-color: var(--primary);
     }
 
     /* ---------- Tender Cards ---------- */
     .tender-card {
-      background: white; border-radius: 12px; padding: 20px 24px;
-      margin-bottom: 16px; border: 1px solid #e2e8f0; border-left: 5px solid #2563eb !important;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: all 0.2s ease;
+      background: white; border-radius: 14px; padding: 22px 26px;
+      margin-bottom: 18px; border: 1px solid var(--border-color); border-left: 5px solid var(--primary) !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: all 0.2s ease;
     }
-    .tender-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-    .tc-dept-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 10px; }
-    .tc-dept { font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+    .tender-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.07); }
+    .tc-dept-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 10px; }
+    .tc-dept { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
     /* Urgency Badges */
-    .badge-red { background: #fee2e2; color: #dc2626; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
-    .badge-light-red { background: #ffedd5; color: #ea580c; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
-    .badge-yellow { background: #fef9c3; color: #ca8a04; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
-    .badge-green { background: #dcfce7; color: #16a34a; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
-    .badge-gray { background: #f1f5f9; color: #64748b; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+    .badge-red { background: #fee2e2; color: #dc2626; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; white-space: nowrap; }
+    .badge-light-red { background: #ffedd5; color: #ea580c; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; white-space: nowrap; }
+    .badge-yellow { background: #fef9c3; color: #ca8a04; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; white-space: nowrap; }
+    .badge-green { background: #dcfce7; color: #16a34a; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; white-space: nowrap; }
+    .badge-gray { background: #f1f5f9; color: var(--text-muted); padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; white-space: nowrap; }
 
-    .tc-title { font-size: 1.22rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; line-height: 1.4; }
-    .tc-meta { font-size: 0.85rem; color: #475569; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .tc-title { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.4; }
+    .tc-meta { font-size: 0.82rem; color: #475569; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .tc-tag { background: #f1f5f9; padding: 5px 12px; border-radius: 8px; font-weight: 600; color: #334155; }
     .tc-source-tag { background: #eff6ff; color: #1d4ed8; padding: 5px 12px; border-radius: 8px; font-weight: 700; }
-    .tc-elig-tag { background: #f0fdf4; color: #15803d; padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; border: 1px solid #bbf7d0; }
-    .tc-loc { font-size: 0.9rem; color: #334155; background: #f8fafc; padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; border: 1px solid #f1f5f9; }
-    .tc-summary { font-size: 0.95rem; color: #1e293b; margin-bottom: 16px; line-height: 1.5; font-weight: 500; }
+    .tc-elig-tag { background: #f0fdf4; color: #15803d; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; border: 1px solid #bbf7d0; }
+    .tc-loc { font-size: 0.88rem; color: #334155; background: #f8fafc; padding: 10px 14px; border-radius: 9px; margin-bottom: 12px; border: 1px solid #f1f5f9; }
+    .tc-summary { font-size: 0.92rem; color: #334155; margin-bottom: 16px; line-height: 1.5; font-weight: 500; background: #fffbeb; padding: 10px 14px; border-radius: 8px; border-left: 3px solid #f59e0b; }
     .tc-grid {
       display: grid; grid-template-columns: repeat(6, 1fr) auto; gap: 12px;
-      align-items: center; background: #f8fafc; padding: 12px 16px; border-radius: 8px; border: 1px solid #f1f5f9;
+      align-items: center; background: #f8fafc; padding: 12px 16px; border-radius: 10px; border: 1px solid #f1f5f9;
     }
-    .tc-stat-label { font-size: 0.72rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
-    .tc-stat-val { font-size: 0.95rem; color: #0f172a; font-weight: 700; }
+    .tc-stat-label { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+    .tc-stat-val { font-size: 0.92rem; color: var(--text-main); font-weight: 700; }
     .tc-btn {
-      background: #2563eb; color: white !important; padding: 10px 16px;
-      border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.84rem; transition: 0.2s;
+      background: var(--primary); color: white !important; padding: 10px 16px;
+      border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 0.82rem; transition: 0.2s;
       display: inline-block; text-align: center; white-space: nowrap; border: none; cursor: pointer;
+      box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
     }
-    .tc-btn:hover { background: #1d4ed8; }
+    .tc-btn:hover { background: var(--primary-dark); }
     .tc-btn-wa {
       background: #16a34a; color: white !important; padding: 10px 12px;
-      border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.84rem; margin-left: 6px;
+      border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 0.82rem; margin-left: 6px;
+      box-shadow: 0 2px 5px rgba(22, 163, 74, 0.2);
     }
     .tc-btn-wa:hover { background: #15803d; }
     .star-btn {
-      background: none; border: 1px solid #cbd5e1; border-radius: 6px;
-      padding: 3px 8px; cursor: pointer; font-size: 0.85rem; font-weight: 700; color: #475569;
+      background: #fff; border: 1px solid #cbd5e1; border-radius: 7px;
+      padding: 4px 10px; cursor: pointer; font-size: 0.82rem; font-weight: 700; color: #475569;
+      transition: all 0.2s ease;
     }
     .star-btn.saved { background: #fef9c3; border-color: #facc15; color: #ca8a04; }
     .tc-select {
-      background: white; color: #0f172a; padding: 9px 12px; border-radius: 8px;
-      font-weight: 600; font-size: 0.84rem; border: 1px solid #cbd5e1; cursor: pointer;
+      background: white; color: var(--text-main); padding: 9px 12px; border-radius: 9px;
+      font-weight: 600; font-size: 0.82rem; border: 1px solid #cbd5e1; cursor: pointer; outline: none;
     }
 
     .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .chart-box { background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; }
+    .chart-box { background: white; border-radius: 14px; border: 1px solid var(--border-color); padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
 
     @media (max-width: 1100px) {
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
       .filter-grid { grid-template-columns: repeat(2, 1fr); }
       .tc-grid { grid-template-columns: repeat(2, 1fr); }
       .charts-grid { grid-template-columns: 1fr; }
-      .hero-overlay { width: 100%; background: rgba(2,6,23,0.78); }
+      .hero-overlay { width: 100%; background: rgba(2,6,23,0.85); }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO HEADER -->
+  <!-- HERO HEADER (Preserving your exact SVE Image) -->
   <div class="hero-banner">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">Odisha Government Procurement • Shree Venkatesh Enterprises</div>
       <h1 class="hero-title">Tender Intelligence <span style="color: #fbbf24;">Dashboard</span></h1>
-      <p class="hero-sub">Search, filter and analyze government tenders from multiple Odisha portals in one premium feed.</p>
+      <p class="hero-sub">AI-Powered procurement monitoring, automated document analysis & live opportunity tracking across Odisha.</p>
       <div class="hero-pills">
         <span id="lastUpdatedPill" class="hero-pill">● Live Dataset</span>
         <span class="hero-pill">⚡ AI Summaries</span>
-        <span class="hero-pill">🎯 Advanced Filtering</span>
+        <span class="hero-pill">🎯 District OCR Pre-Filter</span>
         <a href="./odisha_tenders.xlsx" download class="hero-download-btn">📥 Download Master Excel</a>
       </div>
     </div>
+  </div>
+
+  <!-- QUICK CATEGORY FILTER CHIPS -->
+  <div class="quick-categories" id="quickCategories">
+    <div class="cat-chip active" onclick="setCategoryFilter('')">✨ All Tenders</div>
+    <div class="cat-chip" onclick="setCategoryFilter('Smart Interactive Panel')">📺 Smart Interactive Panels</div>
+    <div class="cat-chip" onclick="setCategoryFilter('Solar')">☀️ Solar Systems</div>
+    <div class="cat-chip" onclick="setCategoryFilter('Laptop')">💻 Laptops & Computers</div>
+    <div class="cat-chip" onclick="setCategoryFilter('Furniture')">🪑 Furniture & Beds</div>
+    <div class="cat-chip" onclick="setCategoryFilter('Water Purifier')">💧 Water Purifiers (RO)</div>
+    <div class="cat-chip" onclick="setCategoryFilter('Plastic Crates')">📦 Plastic Crates</div>
+    <div class="cat-chip" onclick="setCategoryFilter('Air Conditioner')">❄️ Air Conditioners</div>
   </div>
 
   <!-- KPI CARDS -->
@@ -289,7 +342,7 @@
   <!-- FILTER BAR -->
   <div class="filter-heading">
     <span>🔍 Filter Opportunities</span>
-    <button onclick="resetFilters()" style="background:none;border:none;color:#2563eb;font-weight:700;cursor:pointer;font-size:0.85rem;">Reset All Filters</button>
+    <button onclick="resetFilters()" style="background:none;border:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:0.85rem;">Reset All Filters</button>
   </div>
   <div class="filter-grid">
     <div class="filter-group">
@@ -348,14 +401,15 @@
   </div>
 
   <!-- FOOTER -->
-  <div style="text-align: center; color: #94a3b8; font-size: 0.8rem; margin-top: 40px; margin-bottom: 20px;">
-    Tender Intelligence Platform • Shree Venkatesh Enterprises (Trust | Quality | Commitment)
+  <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 50px; margin-bottom: 20px;">
+    Tender Intelligence Platform • M/S Shree Venkatesh Enterprises (Trust | Quality | Commitment)
   </div>
 
   <script>
     let rawTenders = [];
     let filteredTenders = [];
     let currentTab = 'feed';
+    let activeCategoryChip = '';
     let savedIds = new Set(JSON.parse(localStorage.getItem('sve_saved_tenders') || '[]'));
 
     function toggleSaveTender(tNo) {
@@ -365,6 +419,14 @@
       renderKPIs();
       renderFeed();
       renderSaved();
+    }
+
+    function setCategoryFilter(keyword) {
+      activeCategoryChip = keyword;
+      document.querySelectorAll('.cat-chip').forEach(el => {
+        el.classList.toggle('active', el.textContent.toLowerCase().includes(keyword.toLowerCase()) || (keyword === '' && el.textContent.includes('All')));
+      });
+      applyFilters();
     }
 
     function parseFlexibleDate(val) {
@@ -445,7 +507,6 @@
     }
 
     async function loadData() {
-      // 1. Try fast JSON feed first (tenders_data.json)
       try {
         const res = await fetch('./tenders_data.json?t=' + Date.now());
         if (res.ok) {
@@ -460,7 +521,6 @@
         }
       } catch (e) {}
 
-      // 2. Fallback to reading odisha_tenders.xlsx directly via SheetJS
       try {
         const res = await fetch('./odisha_tenders.xlsx?t=' + Date.now());
         const arrayBuffer = await res.arrayBuffer();
@@ -503,6 +563,12 @@
         if (dept && t.dept !== dept) return false;
         if (openAfter && (!t.opnDate || t.opnDate < openAfter)) return false;
         if (closeBefore && (!t.clsDate || t.clsDate > closeBefore)) return false;
+        
+        if (activeCategoryChip) {
+          const catHay = `${t.category} ${t.title}`.toLowerCase();
+          if (!catHay.includes(activeCategoryChip.toLowerCase())) return false;
+        }
+
         if (q) {
           const hay = `${t.title} ${t.tNo} ${t.summary} ${t.dept} ${t.category} ${t.dist}`.toLowerCase();
           if (!hay.includes(q)) return false;
@@ -530,7 +596,7 @@
       document.getElementById('fStatus').value = 'All';
       document.getElementById('fOpenDate').value = '';
       document.getElementById('fCloseDate').value = '';
-      applyFilters();
+      setCategoryFilter('');
     }
 
     function renderKPIs() {
