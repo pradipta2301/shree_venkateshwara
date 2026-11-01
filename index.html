@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tender Intelligence Platform | Shree Venkatesh Enterprises</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #f8fafc;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      padding: 1.2rem 2rem 2rem 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Hero Header ---------- */
+    .hero-banner {
+      position: relative;
+      height: 380px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      background-color: #020617;
+      background-image: url('./Gemini_Generated_Image.png');
+      background-size: cover;
+      background-position: right center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 65%; height: 100%;
+      background: linear-gradient(90deg, #020617 25%, rgba(2,6,23,0.85) 60%, transparent 100%);
+    }
+    .hero-content {
+      position: absolute;
+      top: 65px; left: 45px;
+      color: white;
+      max-width: 650px;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 2px;
+      color: #bfdbfe; margin-bottom: 8px; text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: 2.8rem; font-weight: 800; line-height: 1.1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero-sub {
+      color: #dbeafe; font-size: 1.08rem; margin-top: 14px; line-height: 1.5;
+    }
+    .hero-pills {
+      margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; color: #fff;
+    }
+    .hero-download-btn {
+      background: #fbbf24; color: #020617; font-weight: 800;
+      padding: 7px 16px; border-radius: 20px; font-size: 0.82rem;
+      text-decoration: none; transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(251,191,36,0.35);
+    }
+    .hero-download-btn:hover { background: #f59e0b; transform: translateY(-1px); }
+
+    /* ---------- KPI Cards ---------- */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 15px 18px; min-height: 96px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .kpi-icon { font-size: 1.25rem; margin-bottom: 5px; }
+    .kpi-label { font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .kpi-value { font-size: 1.65rem; color: #0f172a; font-weight: 800; line-height: 1.2; }
+    .kpi-blue { border-top: 4px solid #2563eb; }
+    .kpi-green { border-top: 4px solid #16a34a; }
+    .kpi-orange { border-top: 4px solid #f59e0b; }
+    .kpi-cyan { border-top: 4px solid #0891b2; }
+
+    /* ---------- Revolving Animation ---------- */
+    .revolving-container { position: relative; height: 50px; overflow: hidden; }
+    .revolve-item { position: absolute; width: 100%; top: 0; left: 0; animation: flip 6s infinite ease-in-out; }
+    .item-2 { animation-delay: 3s; opacity: 0; transform: translateY(15px); }
+    @keyframes flip {
+      0%, 40% { opacity: 1; transform: translateY(0px); }
+      45%, 50% { opacity: 0; transform: translateY(-15px); }
+      90%, 95% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0px); }
+    }
+
+    /* ---------- Filter Bar ---------- */
+    .filter-heading {
+      color: #020617; font-size: 1.15rem; font-weight: 800; margin-bottom: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .filter-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #020617;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .filter-group input, .filter-group select {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      font-size: 0.85rem;
+      color: #0f172a;
+      outline: none;
+      transition: 0.15s;
+    }
+    .filter-group input:focus, .filter-group select:focus {
+      border-color: #2563eb;
+      background: #fff;
+    }
+
+    /* ---------- Tabs ---------- */
+    .tabs-bar {
+      display: flex;
+      gap: 24px;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.05rem; font-weight: 700; color: #64748b;
+      padding: 10px 4px; border-bottom: 3px solid transparent;
+      margin-bottom: -2px; transition: 0.2s;
+    }
+    .tab-btn.active {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
+    }
+
+    /* ---------- Tender Cards ---------- */
+    .tender-card {
+      background: white; border-radius: 12px; padding: 20px 24px;
+      margin-bottom: 16px; border: 1px solid #e2e8f0; border-left: 5px solid #2563eb !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: all 0.2s ease;
+    }
+    .tender-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+    .tc-dept-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 10px; }
+    .tc-dept { font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Urgency Badges */
+    .badge-red { background: #fee2e2; color: #dc2626; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+    .badge-light-red { background: #ffedd5; color: #ea580c; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+    .badge-yellow { background: #fef9c3; color: #ca8a04; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+    .badge-green { background: #dcfce7; color: #16a34a; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+    .badge-gray { background: #f1f5f9; color: #64748b; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+
+    .tc-title { font-size: 1.22rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; line-height: 1.4; }
+    .tc-meta { font-size: 0.85rem; color: #475569; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .tc-tag { background: #f1f5f9; padding: 5px 12px; border-radius: 8px; font-weight: 600; color: #334155; }
+    .tc-source-tag { background: #eff6ff; color: #1d4ed8; padding: 5px 12px; border-radius: 8px; font-weight: 700; }
+    .tc-elig-tag { background: #f0fdf4; color: #15803d; padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; border: 1px solid #bbf7d0; }
+    .tc-loc { font-size: 0.9rem; color: #334155; background: #f8fafc; padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; border: 1px solid #f1f5f9; }
+    .tc-summary { font-size: 0.95rem; color: #1e293b; margin-bottom: 16px; line-height: 1.5; font-weight: 500; }
+    .tc-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr) auto; gap: 12px;
+      align-items: center; background: #f8fafc; padding: 12px 16px; border-radius: 8px; border: 1px solid #f1f5f9;
+    }
+    .tc-stat-label { font-size: 0.72rem; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+    .tc-stat-val { font-size: 0.95rem; color: #0f172a; font-weight: 700; }
+    .tc-btn {
+      background: #2563eb; color: white !important; padding: 10px 16px;
+      border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.84rem; transition: 0.2s;
+      display: inline-block; text-align: center; white-space: nowrap; border: none; cursor: pointer;
+    }
+    .tc-btn:hover { background: #1d4ed8; }
+    .tc-btn-wa {
+      background: #16a34a; color: white !important; padding: 10px 12px;
+      border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.84rem; margin-left: 6px;
+    }
+    .tc-btn-wa:hover { background: #15803d; }
+    .star-btn {
+      background: none; border: 1px solid #cbd5e1; border-radius: 6px;
+      padding: 3px 8px; cursor: pointer; font-size: 0.85rem; font-weight: 700; color: #475569;
+    }
+    .star-btn.saved { background: #fef9c3; border-color: #facc15; color: #ca8a04; }
+    .tc-select {
+      background: white; color: #0f172a; padding: 9px 12px; border-radius: 8px;
+      font-weight: 600; font-size: 0.84rem; border: 1px solid #cbd5e1; cursor: pointer;
+    }
+
+    .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .chart-box { background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; }
+
+    @media (max-width: 1100px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .filter-grid { grid-template-columns: repeat(2, 1fr); }
+      .tc-grid { grid-template-columns: repeat(2, 1fr); }
+      .charts-grid { grid-template-columns: 1fr; }
+      .hero-overlay { width: 100%; background: rgba(2,6,23,0.78); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO HEADER -->
+  <div class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Odisha Government Procurement • Shree Venkatesh Enterprises</div>
+      <h1 class="hero-title">Tender Intelligence <span style="color: #fbbf24;">Dashboard</span></h1>
+      <p class="hero-sub">Search, filter and analyze government tenders from multiple Odisha portals in one premium feed.</p>
+      <div class="hero-pills">
+        <span id="lastUpdatedPill" class="hero-pill">● Live Dataset</span>
+        <span class="hero-pill">⚡ AI Summaries</span>
+        <span class="hero-pill">🎯 Advanced Filtering</span>
+        <a href="./odisha_tenders.xlsx" download class="hero-download-btn">📥 Download Master Excel</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI CARDS -->
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-icon">📋</div>
+      <div class="revolving-container">
+        <div class="revolve-item item-1">
+          <div class="kpi-label">Filtered Tenders</div>
+          <div id="kpiFiltered" class="kpi-value">0</div>
+        </div>
+        <div class="revolve-item item-2">
+          <div class="kpi-label">Total in Database</div>
+          <div id="kpiTotal" class="kpi-value">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-card kpi-green">
+      <div class="kpi-icon">🟢</div>
+      <div class="revolving-container">
+        <div class="revolve-item item-1">
+          <div class="kpi-label">Active Tenders</div>
+          <div id="kpiActive" class="kpi-value">0</div>
+        </div>
+        <div class="revolve-item item-2">
+          <div class="kpi-label">Expired Tenders</div>
+          <div id="kpiExpired" class="kpi-value">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-card kpi-orange">
+      <div class="kpi-icon">📍</div>
+      <div class="kpi-label">Districts Covered</div>
+      <div id="kpiDistricts" class="kpi-value">0</div>
+    </div>
+
+    <div class="kpi-card kpi-cyan">
+      <div class="kpi-icon">💰</div>
+      <div class="kpi-label">Total Pipeline Value</div>
+      <div id="kpiValue" class="kpi-value">₹0.0 Cr</div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-heading">
+    <span>🔍 Filter Opportunities</span>
+    <button onclick="resetFilters()" style="background:none;border:none;color:#2563eb;font-weight:700;cursor:pointer;font-size:0.85rem;">Reset All Filters</button>
+  </div>
+  <div class="filter-grid">
+    <div class="filter-group">
+      <label>Keyword Search</label>
+      <input type="text" id="fSearch" placeholder="Title, ID, Summary..." oninput="applyFilters()" />
+    </div>
+    <div class="filter-group">
+      <label>Source Portal</label>
+      <select id="fSource" onchange="applyFilters()"><option value="">All Portals</option></select>
+    </div>
+    <div class="filter-group">
+      <label>District</label>
+      <select id="fDistrict" onchange="applyFilters()"><option value="">All Districts</option></select>
+    </div>
+    <div class="filter-group">
+      <label>Department</label>
+      <select id="fDept" onchange="applyFilters()"><option value="">All Depts</option></select>
+    </div>
+    <div class="filter-group">
+      <label>Status</label>
+      <select id="fStatus" onchange="applyFilters()">
+        <option value="All">All</option>
+        <option value="Active Only" selected>Active Only</option>
+        <option value="Expired Only">Expired Only</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Opening (After)</label>
+      <input type="date" id="fOpenDate" onchange="applyFilters()" />
+    </div>
+    <div class="filter-group">
+      <label>Closing (Before)</label>
+      <input type="date" id="fCloseDate" onchange="applyFilters()" />
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs-bar">
+    <button id="tabBtnFeed" class="tab-btn active" onclick="switchTab('feed')">🗂️ Tender Feed (0)</button>
+    <button id="tabBtnSaved" class="tab-btn" onclick="switchTab('saved')">⭐ Shortlisted (0)</button>
+    <button id="tabBtnAnalytics" class="tab-btn" onclick="switchTab('analytics')">📊 Analytics Dashboard</button>
+  </div>
+
+  <!-- TAB 1: TENDER FEED -->
+  <div id="tabFeed"></div>
+
+  <!-- TAB 2: SAVED / SHORTLISTED -->
+  <div id="tabSaved" style="display: none;"></div>
+
+  <!-- TAB 3: ANALYTICS -->
+  <div id="tabAnalytics" style="display: none;">
+    <div class="charts-grid">
+      <div class="chart-box"><div id="chartDistricts"></div></div>
+      <div class="chart-box"><div id="chartDepts"></div></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="text-align: center; color: #94a3b8; font-size: 0.8rem; margin-top: 40px; margin-bottom: 20px;">
+    Tender Intelligence Platform • Shree Venkatesh Enterprises (Trust | Quality | Commitment)
+  </div>
+
+  <script>
+    let rawTenders = [];
+    let filteredTenders = [];
+    let currentTab = 'feed';
+    let savedIds = new Set(JSON.parse(localStorage.getItem('sve_saved_tenders') || '[]'));
+
+    function toggleSaveTender(tNo) {
+      if (savedIds.has(tNo)) savedIds.delete(tNo);
+      else savedIds.add(tNo);
+      localStorage.setItem('sve_saved_tenders', JSON.stringify([...savedIds]));
+      renderKPIs();
+      renderFeed();
+      renderSaved();
+    }
+
+    function parseFlexibleDate(val) {
+      if (!val) return null;
+      if (val instanceof Date && !isNaN(val)) return val;
+      if (typeof val === 'number') {
+        const utcDays = Math.floor(val - 25569);
+        return new Date(utcDays * 86400 * 1000);
+      }
+      const str = String(val).trim();
+      if (!str || str.toLowerCase() === 'nan' || str.toLowerCase() === 'na') return null;
+      const dmy = str.match(/^(\d{1,2})[-./](\d{1,2})[-./](\d{4})/);
+      if (dmy) return new Date(Number(dmy[3]), Number(dmy[2]) - 1, Number(dmy[1]));
+      const parsed = new Date(str);
+      return isNaN(parsed) ? null : parsed;
+    }
+
+    function formatDate(d) {
+      if (!d || isNaN(d)) return 'N/A';
+      return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function getUrgencyInfo(closingDate) {
+      if (!closingDate || isNaN(closingDate)) return { days: 9999, text: 'No Closing Date', badge: 'badge-gray' };
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      const cls = new Date(closingDate);
+      cls.setHours(0,0,0,0);
+      const delta = Math.round((cls - today) / (1000 * 60 * 60 * 24));
+      if (delta < 0) return { days: delta, text: `${-delta} days expired`, badge: 'badge-gray' };
+      if (delta <= 2) return { days: delta, text: `${delta} days left`, badge: 'badge-red' };
+      if (delta <= 5) return { days: delta, text: `${delta} days left`, badge: 'badge-light-red' };
+      if (delta <= 7) return { days: delta, text: `${delta} days left`, badge: 'badge-yellow' };
+      return { days: delta, text: `${delta} days left`, badge: 'badge-green' };
+    }
+
+    function normalizeRecord(r) {
+      const tNo = String(r.tender_no || r['Tender No'] || 'N/A').trim();
+      const title = String(r.title || r['Title'] || 'Untitled Tender').trim();
+      const dept = String(r.department || r['Department'] || 'Unknown Department').trim();
+      const summary = String(r.summary || r['Summary'] || 'No summary available.').trim();
+      const category = String(r.category || r['Category'] || 'General').trim();
+      const dist = String(r.district || r['District'] || 'Odisha').trim() || 'Odisha';
+      const addr = String(r.address || r['Address'] || '').trim();
+      const link = String(r.link || r['Link'] || 'https://tendersodisha.gov.in').trim();
+      const sourcePortal = String(r.source_portal || r['Source Portal'] || r.source || 'Odisha Portal').trim();
+
+      const pubDate = parseFlexibleDate(r.published_date || r['Published Date']);
+      const opnDate = parseFlexibleDate(r.opening_date || r['Opening Date']);
+      const clsDate = parseFlexibleDate(r.closing_date || r['Closing Date']);
+      const urg = getUrgencyInfo(clsDate);
+
+      const numValue = parseFloat(String(r.tender_value || r['Tender Value'] || '0').replace(/,/g, '')) || 0;
+      const numEmd = parseFloat(String(r.emd || r['EMD'] || '0').replace(/,/g, '')) || 0;
+      const qty = String(r.quantity || r['Quantity'] || '').trim();
+      const emdElig = String(r.emd_eligibility || r['EMD Eligibility'] || '').trim();
+      const oemReq = String(r.oem_requirement || r['OEM Requirement'] || '').trim();
+      const pastExp = String(r.past_experience || r['Past Experience'] || '').trim();
+      const turnover = String(r.turnover_requirement || r['Turnover Requirement'] || '').trim();
+
+      let extraDocs = [];
+      if (Array.isArray(r.additional_documents)) {
+        extraDocs = r.additional_documents;
+      } else {
+        const rawAdd = String(r['Additional Documents'] || '').trim();
+        if (rawAdd && rawAdd.toLowerCase() !== 'nan') {
+          extraDocs = rawAdd.replace(/,/g, ' ').split(/\s+/).filter(d => d.startsWith('http'));
+        }
+      }
+
+      return {
+        tNo, title, dept, summary, category, dist, addr, link, sourcePortal,
+        pubDate, opnDate, clsDate,
+        daysLeft: urg.days, urgencyText: urg.text, badgeClass: urg.badge,
+        isExpired: urg.days < 0,
+        numValue, numEmd, qty, emdElig, oemReq, pastExp, turnover, extraDocs
+      };
+    }
+
+    async function loadData() {
+      // 1. Try fast JSON feed first (tenders_data.json)
+      try {
+        const res = await fetch('./tenders_data.json?t=' + Date.now());
+        if (res.ok) {
+          const data = await res.json();
+          if (data.last_updated) {
+            document.getElementById('lastUpdatedPill').textContent = '● Updated: ' + data.last_updated;
+          }
+          rawTenders = (data.tenders || []).map(normalizeRecord);
+          populateDropdowns();
+          applyFilters();
+          return;
+        }
+      } catch (e) {}
+
+      // 2. Fallback to reading odisha_tenders.xlsx directly via SheetJS
+      try {
+        const res = await fetch('./odisha_tenders.xlsx?t=' + Date.now());
+        const arrayBuffer = await res.arrayBuffer();
+        const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' });
+        rawTenders = rows.map(normalizeRecord);
+        populateDropdowns();
+        applyFilters();
+      } catch (err) {
+        document.getElementById('tabFeed').innerHTML = `<div class="tender-card">Could not load tender data: ${err.message}</div>`;
+      }
+    }
+
+    function populateDropdowns() {
+      const fill = (id, items) => {
+        const sel = document.getElementById(id);
+        const firstOpt = sel.options[0].outerHTML;
+        sel.innerHTML = firstOpt + items.map(x => `<option value="${x}">${x}</option>`).join('');
+      };
+      fill('fSource', [...new Set(rawTenders.map(t => t.sourcePortal).filter(Boolean))].sort());
+      fill('fDistrict', [...new Set(rawTenders.map(t => t.dist).filter(Boolean))].sort());
+      fill('fDept', [...new Set(rawTenders.map(t => t.dept).filter(Boolean))].sort());
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('fSearch').value.toLowerCase().trim();
+      const src = document.getElementById('fSource').value;
+      const dist = document.getElementById('fDistrict').value;
+      const dept = document.getElementById('fDept').value;
+      const status = document.getElementById('fStatus').value;
+      const openAfter = document.getElementById('fOpenDate').value ? new Date(document.getElementById('fOpenDate').value) : null;
+      const closeBefore = document.getElementById('fCloseDate').value ? new Date(document.getElementById('fCloseDate').value) : null;
+
+      filteredTenders = rawTenders.filter(t => {
+        if (status === 'Active Only' && t.isExpired) return false;
+        if (status === 'Expired Only' && !t.isExpired) return false;
+        if (src && t.sourcePortal !== src) return false;
+        if (dist && t.dist !== dist) return false;
+        if (dept && t.dept !== dept) return false;
+        if (openAfter && (!t.opnDate || t.opnDate < openAfter)) return false;
+        if (closeBefore && (!t.clsDate || t.clsDate > closeBefore)) return false;
+        if (q) {
+          const hay = `${t.title} ${t.tNo} ${t.summary} ${t.dept} ${t.category} ${t.dist}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      filteredTenders.sort((a, b) => {
+        const sa = a.daysLeft < 0 ? 999999 : a.daysLeft;
+        const sb = b.daysLeft < 0 ? 999999 : b.daysLeft;
+        return sa - sb;
+      });
+
+      renderKPIs();
+      renderFeed();
+      renderSaved();
+      if (currentTab === 'analytics') renderCharts();
+    }
+
+    function resetFilters() {
+      document.getElementById('fSearch').value = '';
+      document.getElementById('fSource').value = '';
+      document.getElementById('fDistrict').value = '';
+      document.getElementById('fDept').value = '';
+      document.getElementById('fStatus').value = 'All';
+      document.getElementById('fOpenDate').value = '';
+      document.getElementById('fCloseDate').value = '';
+      applyFilters();
+    }
+
+    function renderKPIs() {
+      const activeCount = filteredTenders.filter(t => !t.isExpired).length;
+      const expiredCount = filteredTenders.filter(t => t.isExpired).length;
+      const distCount = new Set(filteredTenders.map(t => t.dist).filter(Boolean)).size;
+      const totalVal = filteredTenders.reduce((acc, t) => acc + t.numValue, 0);
+
+      document.getElementById('kpiFiltered').textContent = filteredTenders.length.toLocaleString('en-IN');
+      document.getElementById('kpiTotal').textContent = rawTenders.length.toLocaleString('en-IN');
+      document.getElementById('kpiActive').textContent = activeCount.toLocaleString('en-IN');
+      document.getElementById('kpiExpired').textContent = expiredCount.toLocaleString('en-IN');
+      document.getElementById('kpiDistricts').textContent = distCount.toLocaleString('en-IN');
+      document.getElementById('kpiValue').textContent = `₹${(totalVal / 10000000).toFixed(1)} Cr`;
+      document.getElementById('tabBtnFeed').textContent = `🗂️ Tender Feed (${filteredTenders.length})`;
+      document.getElementById('tabBtnSaved').textContent = `⭐ Shortlisted (${savedIds.size})`;
+    }
+
+    function buildCardHtml(row) {
+      let addr = row.addr;
+      if (addr.length > 90) addr = addr.substring(0, 90) + '...';
+      if (!addr || addr.toLowerCase() === 'nan') addr = 'Location details in document.';
+
+      const valStr = row.numValue > 0 ? '₹ ' + row.numValue.toLocaleString('en-IN') : 'Refer Doc';
+      const emdStr = row.numEmd > 0 ? '₹ ' + row.numEmd.toLocaleString('en-IN') : (row.emdElig ? row.emdElig : 'N/A');
+      const qtyStr = row.qty && row.qty.toLowerCase() !== 'nan' ? row.qty : 'N/A';
+
+      const titleHtml = row.title.toLowerCase() !== row.category.toLowerCase()
+        ? `<div class="tc-title">${row.title}</div>` : '';
+
+      let addDocsHtml = '';
+      if (row.extraDocs.length === 1) {
+        addDocsHtml = `<a href="${row.extraDocs[0]}" target="_blank" class="tc-btn" style="background:#0f172a;margin-left:8px;">📁 Extra Doc</a>`;
+      } else if (row.extraDocs.length > 1) {
+        const opts = row.extraDocs.map((dl, idx) => `<option value="${dl}">Doc ${idx+1}</option>`).join('');
+        addDocsHtml = `<select class="tc-select" style="margin-left:8px;" onchange="if(this.value) window.open(this.value, '_blank');"><option value="" disabled selected>📁 Additional Docs (${row.extraDocs.length})</option>${opts}</select>`;
+      }
+
+      const eligBadges = [];
+      if (row.oemReq && row.oemReq.toLowerCase() !== 'nan') eligBadges.push(`<span class="tc-elig-tag">OEM: ${row.oemReq}</span>`);
+      if (row.pastExp && row.pastExp.toLowerCase() !== 'nan') eligBadges.push(`<span class="tc-elig-tag">Exp: ${row.pastExp}</span>`);
+      if (row.turnover && row.turnover.toLowerCase() !== 'nan') eligBadges.push(`<span class="tc-elig-tag">Turnover: ${row.turnover}</span>`);
+
+      const isSaved = savedIds.has(row.tNo);
+      const waText = encodeURIComponent(`*${row.title}*\n🆔 Tender No: ${row.tNo}\n📍 District: ${row.dist}\n💰 Value: ${valStr} | EMD: ${emdStr}\n⏳ Closing: ${formatDate(row.clsDate)}\n🔗 Link: ${row.link}`);
+
+      return `
+        <div class="tender-card">
+          <div class="tc-dept-row">
+            <div class="tc-dept">${row.dept}</div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <button class="star-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveTender('${row.tNo.replace(/'/g, "\\'")}')">
+                ${isSaved ? '★ Shortlisted' : '☆ Shortlist'}
+              </button>
+              <div class="${row.badgeClass}">${row.urgencyText}</div>
+            </div>
+          </div>
+          ${titleHtml}
+          <div class="tc-meta">
+            <span class="tc-source-tag">🌐 ${row.sourcePortal}</span>
+            <span class="tc-tag">🏷️ ${row.category}</span>
+            <span>🆔 <b>${row.tNo}</b></span>
+            ${eligBadges.join('')}
+          </div>
+          <div class="tc-loc">📍 <b>${row.dist}</b> &mdash; ${addr}</div>
+          <div class="tc-summary">📝 ${row.summary}</div>
+          <div class="tc-grid">
+            <div><div class="tc-stat-label">Value</div><div class="tc-stat-val">💰 ${valStr}</div></div>
+            <div><div class="tc-stat-label">EMD</div><div class="tc-stat-val">🛡️ ${emdStr}</div></div>
+            <div><div class="tc-stat-label">Quantity</div><div class="tc-stat-val">📦 ${qtyStr}</div></div>
+            <div><div class="tc-stat-label">Published</div><div class="tc-stat-val">📅 ${formatDate(row.pubDate)}</div></div>
+            <div><div class="tc-stat-label">Opening</div><div class="tc-stat-val">🟢 ${formatDate(row.opnDate)}</div></div>
+            <div><div class="tc-stat-label">Closing</div><div class="tc-stat-val">⏳ ${formatDate(row.clsDate)}</div></div>
+            <div style="text-align:right;display:flex;align-items:center;justify-content:flex-end;">
+              <a href="${row.link}" target="_blank" class="tc-btn">🔗 View Document</a>
+              ${addDocsHtml}
+              <a href="https://wa.me/?text=${waText}" target="_blank" class="tc-btn-wa" title="Share on WhatsApp">📲</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFeed() {
+      const container = document.getElementById('tabFeed');
+      if (!filteredTenders.length) {
+        container.innerHTML = `<div class="tender-card">No tenders match your current filters. Try adjusting your search.</div>`;
+        return;
+      }
+      container.innerHTML = filteredTenders.map(buildCardHtml).join('');
+    }
+
+    function renderSaved() {
+      const container = document.getElementById('tabSaved');
+      const savedList = rawTenders.filter(t => savedIds.has(t.tNo));
+      if (!savedList.length) {
+        container.innerHTML = `<div class="tender-card">No shortlisted tenders yet. Click "☆ Shortlist" on any tender card to save it here.</div>`;
+        return;
+      }
+      container.innerHTML = savedList.map(buildCardHtml).join('');
+    }
+
+    function renderCharts() {
+      const distCounts = {};
+      const deptCounts = {};
+      filteredTenders.forEach(t => {
+        distCounts[t.dist] = (distCounts[t.dist] || 0) + 1;
+        deptCounts[t.dept] = (deptCounts[t.dept] || 0) + 1;
+      });
+
+      const topDist = Object.entries(distCounts).sort((a,b) => b[1]-a[1]).slice(0, 10);
+      Plotly.newPlot('chartDistricts', [{
+        x: topDist.map(x => x[0]),
+        y: topDist.map(x => x[1]),
+        type: 'bar',
+        marker: { color: '#2563eb' },
+        text: topDist.map(x => x[1]),
+        textposition: 'auto'
+      }], { title: 'Top Districts by Tender Volume', height: 390, margin: { t: 50, b: 60, l: 40, r: 20 } }, { responsive: true });
+
+      const topDept = Object.entries(deptCounts).sort((a,b) => b[1]-a[1]).slice(0, 8);
+      Plotly.newPlot('chartDepts', [{
+        labels: topDept.map(x => x[0]),
+        values: topDept.map(x => x[1]),
+        type: 'pie',
+        hole: 0.55
+      }], { title: 'Department Distribution', height: 390, margin: { t: 50, b: 50, l: 20, r: 20 } }, { responsive: true });
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tabFeed').style.display = tab === 'feed' ? 'block' : 'none';
+      document.getElementById('tabSaved').style.display = tab === 'saved' ? 'block' : 'none';
+      document.getElementById('tabAnalytics').style.display = tab === 'analytics' ? 'block' : 'none';
+      document.getElementById('tabBtnFeed').classList.toggle('active', tab === 'feed');
+      document.getElementById('tabBtnSaved').classList.toggle('active', tab === 'saved');
+      document.getElementById('tabBtnAnalytics').classList.toggle('active', tab === 'analytics');
+      if (tab === 'analytics') renderCharts();
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+{
+  "electronics_appliances": {
+    "Smart Interactive Panel": [
+      "smart interactive panel",
+      "interactive panel",
+      "interactive whiteboard",
+      "smartboard",
+      "interactive flat panel",
+      "interactive flat panel display",
+      "IFPD",
+      "digital whiteboard",
+      "touch display"
+    ],
+    "Smart TV": [
+      "smart tv",
+      "television",
+      "led tv",
+      "connected tv",
+      "internet enabled tv",
+      "internet-enabled tv",
+      "digital television",
+      "high definition television",
+      "high-definition television",
+      "HDTV",
+      "flat screen tv",
+      "flat-screen tv"
+    ],
+    "Air Conditioner": [
+      "air conditioner",
+      "air conditioning",
+      "air-conditioning",
+      "HVAC unit",
+      "climate control system",
+      "cooling system",
+      "AC unit",
+      "split system",
+      "split AC",
+      "split air conditioner",
+      "window AC",
+      "window air conditioner",
+      "AC system",
+      "maintenance of ac"
+    ],
+    "Cooler": [
+      "cooler",
+      "air cooler",
+      "swamp cooler",
+      "evaporative cooler",
+      "room cooler",
+      "desert cooler",
+      "mortuary cooler"
+    ],
+    "Washing Machine": [
+      "washing machine",
+      "washer",
+      "clothes washer",
+      "laundry machine",
+      "washer-extractor"
+    ],
+    "Refrigerator": [
+      "refrigerator",
+      "fridge",
+      "cooling appliance",
+      "chiller",
+      "icebox",
+      "cold storage unit",
+      "fridge-freezer"
+    ],
+    "Fan": [
+      "fan",
+      "ceiling fan",
+      "exhaust fan",
+      "air circulator",
+      "ventilator",
+      "blower",
+      "extractor fan",
+      "ventilation unit",
+      "air handling unit"
+    ],
+    "General Electrical Electronics": [
+      "electrical items",
+      "electrical & electronics",
+      "electrical and electronics",
+      "electronics items",
+      "electrical articles",
+      "electrical goods",
+      "electrical fittings",
+      "electrical accessories",
+      "electrical materials",
+      "electrical work",
+      "electric items"
+    ]
+  },
+
+  "power_solar_systems": {
+    "Inverter UPS": [
+      "inverter",
+      "inverters",
+      "UPS",
+      "UPS system",
+      "uninterruptible power supply",
+      "backup power system",
+      "battery backup",
+      "continuous power system",
+      "power inverter",
+      "power backup"
+    ],
+    "Generator Genset": [
+      "generator",
+      "genset",
+      "power generator",
+      "backup generator",
+      "portable generator",
+      "alternator",
+      "standby generator"
+    ],
+    "Solar Lights": [
+      "solar light",
+      "solar lights",
+      "solar street light",
+      "solar street lighting",
+      "solar street lamp",
+      "sun-powered light",
+      "sun-powered lights",
+      "photovoltaic lighting",
+      "PV lighting",
+      "off-grid lighting",
+      "solar luminaire"
+    ],
+    "Electrical Panel": [
+      "electrical panel",
+      "control panel",
+      "distribution panel",
+      "switchboard",
+      "breaker box",
+      "distribution board",
+      "electrical enclosure",
+      "electrical cabinet"
+    ],
+    "Solar Panel": [
+      "solar panel",
+      "solar panels",
+      "photovoltaic panel",
+      "photovoltaic panels",
+      "PV panel",
+      "solar module",
+      "solar modules",
+      "solar array",
+      "solar energy board"
+    ]
+  },
+
+  "computers_technology_labs": {
+    "Laptop Computer": [
+      "laptop",
+      "laptop computer",
+      "computer",
+      "computers",
+      "personal computer",
+      "PC",
+      "desktop",
+      "desktop computer",
+      "notebook",
+      "workstation",
+      "computing device",
+      "computing hardware"
+    ],
+    "VR AR Lab": [
+      "VR lab",
+      "AR lab",
+      "virtual reality",
+      "augmented reality",
+      "virtual reality lab",
+      "augmented reality lab",
+      "immersive technology lab",
+      "extended reality lab",
+      "XR lab",
+      "mixed reality lab",
+      "MR lab",
+      "simulation room"
+    ],
+    "Robotic Lab": [
+      "robotic lab",
+      "robotics lab",
+      "automation lab",
+      "mechatronics lab",
+      "robotics center",
+      "robotics centre",
+      "AI and robotics facility",
+      "AI robotics facility",
+      "STEM lab"
+    ],
+    "Laboratory Medical Items": [
+      "laboratory items",
+      "lab items",
+      "laboratory equipment",
+      "lab equipment",
+      "reagents",
+      "medical items",
+      "lab consumables"
+    ]
+  },
+
+  "water_filtration": {
+    "Water Purifier": [
+      "water purifier",
+      "water purification",
+      "water purification system",
+      "water filter",
+      "water filtration system",
+      "drinking water system",
+      "safe drinking water",
+      "RO purifier",
+      "RO water purifier",
+      "reverse osmosis",
+      "reverse osmosis system",
+      "RO system",
+      "RO systems",
+      "Booster Model",
+      "water treatment unit",
+      "water treatment system"
+    ]
+  },
+
+  "home_furniture_bedding": {
+    "Furniture": [
+      "furniture",
+      "furnishings",
+      "decor",
+      "décor",
+      "household goods",
+      "cabinetwork",
+      "fittings",
+      "fixtures"
+    ],
+    "Dining Table": [
+      "dining table",
+      "dinner table",
+      "eating table",
+      "banquet table",
+      "dining suite",
+      "dining table and chair",
+      "dining table chair set"
+    ],
+    "Mattress": [
+      "mattress",
+      "bed pad",
+      "sleep surface",
+      "bed cushion",
+      "futon"
+    ],
+    "Blanket Bed Sheet": [
+      "blanket",
+      "bed sheet",
+      "bedsheet",
+      "bedding",
+      "bedclothes",
+      "bed linens",
+      "bed linen",
+      "covers",
+      "duvet",
+      "quilt",
+      "comforter",
+      "bedding items"
+    ],
+    "LLIN Mosquito Net": [
+      "LLIN mosquito net",
+      "LLIN",
+      "long lasting insecticidal net",
+      "long-lasting insecticidal net",
+      "bed net",
+      "insect net",
+      "mosquito canopy",
+      "bug screen",
+      "treated netting"
+    ],
+    "Indoor Gym Swing and Playground": [
+      "indoor gym",
+      "indoor gym equipment",
+      "home gym equipment",
+      "indoor fitness station",
+      "exercise gear",
+      "indoor play equipment",
+      "Garden Swings",
+      "Playground",
+      "Seesaw",
+      "Outdoor Slide",
+      "indoor playground",
+      "swing"
+    ],
+    "General Store Hostel Supplies": [
+      "stationary & consumable items",
+      "stationary and consumable items",
+      "office stationary",
+      "office stationery",
+      "housekeeping items",
+      "house keeping items",
+      "recurring articles",
+      "non-recurring articles",
+      "store items",
+      "general store items",
+      "different items"
+    ]
+  },
+
+  "kitchen_cooking": {
+    "Utensils Kitchen Equipment": [
+      "utensil",
+      "utensils",
+      "kitchen utensil",
+      "kitchen utensils",
+      "kitchen equipment",
+      "cookware",
+      "kitchenware",
+      "culinary tools",
+      "flatware",
+      "cutlery",
+      "kitchen gadgets",
+      "cooking equipment"
+    ],
+    "Pressure Cooker": [
+      "pressure cooker",
+      "cooker",
+      "steam cooker",
+      "multi-cooker",
+      "multi cooker",
+      "instant pot",
+      "pressure pan"
+    ],
+    "Provisions Grocery": [
+      "grocery",
+      "groceries",
+      "food items",
+      "dietary items"
+    ]
+  },
+
+  "agriculture_industrial_commercial": {
+    "RMC Market Committee": [
+      "rmc",
+      "regulated market committee",
+      "osamb",
+      "market yard",
+      "agricultural marketing"
+    ],
+    "Display Signage": [
+      "display signage",
+      "digital signage",
+      "electronic display",
+      "advertising board",
+      "commercial display",
+      "digital billboard",
+      "signage"
+    ],
+    "Plastic Crates": [
+      "plastic crate",
+      "plastic crates",
+      "storage box",
+      "storage boxes",
+      "plastic container",
+      "plastic containers",
+      "shipping crate",
+      "shipping crates",
+      "tote",
+      "totes",
+      "reusable plastic bin",
+      "reusable plastic bins"
+    ],
+    "Shednet": [
+      "shednet",
+      "shade net",
+      "shade cloth",
+      "agricultural netting",
+      "greenhouse netting",
+      "shade fabric",
+      "sun shade net"
+    ],
+    "Mulching": [
+      "mulchin",
+      "mulch",
+      "mulching",
+      "mulch film",
+      "mulching film",
+      "ground cover",
+      "agricultural film",
+      "soil cover",
+      "weed barrier"
+    ],
+    "Machinery Tools Maintenance": [
+      "machinery tools and equipment",
+      "machinery, tools and equipment",
+      "tools and equipment",
+      "maintenance items",
+      "hardware items",
+      "different items"
+    ]
+  },
+
+  "odisha_districts_master": [
+    "Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", 
+    "Cuttack", "Debagarh", "Dhenkanal", "Gajapati", "Ganjam", 
+    "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", 
+    "Kendrapara", "Kendujhar", "Khordha", "Koraput", "Malkangiri", 
+    "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", 
+    "Rayagada", "Sambalpur", "Subarnapur", "Bhubaneswar", "Sundargarh"
+  ]
+}

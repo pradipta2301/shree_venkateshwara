@@ -1,0 +1,124 @@
+{
+    "odisha_districts": [
+        {
+            "name": "Angul",
+            "url": "https://anugola.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Balangir",
+            "url": "https://balangir.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Balasore",
+            "url": "https://baleshwar.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Bargarh",
+            "url": "https://bargarh.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Bhadrak",
+            "url": "https://bhadrak.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Boudh",
+            "url": "https://boudh.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Cuttack",
+            "url": "https://cuttack.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Debagarh",
+            "url": "https://deogarh.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Dhenkanal",
+            "url": "https://dhenkanal.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Gajapati",
+            "url": "https://gajapati.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Ganjam",
+            "url": "https://ganjam.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Jagatsinghapur",
+            "url": "https://jagatsinghpur.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Jajpur",
+            "url": "https://jajpur.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Jharsuguda",
+            "url": "https://jharsuguda.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Kalahandi",
+            "url": "https://kalahandi.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Kandhamal",
+            "url": "https://kandhamal.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Kendrapara",
+            "url": "https://kendrapara.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Kendujhar",
+            "url": "https://kendujhar.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Khordha",
+            "url": "https://khordha.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Koraput",
+            "url": "https://koraput.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Malkangiri",
+            "url": "https://malkangiri.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Mayurbhanj",
+            "url": "https://mayurbhanj.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Nabarangpur",
+            "url": "https://nabarangpur.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Nayagarh",
+            "url": "https://nayagarh.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Nuapada",
+            "url": "https://nuapada.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Puri",
+            "url": "https://puri.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Rayagada",
+            "url": "https://rayagada.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Sambalpur",
+            "url": "https://sambalpur.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Subarnapur",
+            "url": "https://subarnapur.odisha.gov.in/en/tender"
+        },
+        {
+            "name": "Sundargarh",
+            "url": "https://sundargarh.odisha.gov.in/en/tender"
+        }
+    ]
+}

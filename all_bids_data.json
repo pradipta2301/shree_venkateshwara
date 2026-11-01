@@ -1,0 +1,908 @@
+{
+    "status": 1,
+    "code": 200,
+    "message": "Bid result",
+    "response": {
+        "response": {
+            "numFound": 47998,
+            "start": 0,
+            "numFoundExact": true,
+            "docs": [
+                {
+                    "id": "9706582",
+                    "b_id": [
+                        9706582
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710675"
+                    ],
+                    "b_category_name": [
+                        "OIL COMPARTMENT CYLINDER (220 KV CLASS) OF 1165 MM LENGTH,OIL COMPARTMENT CYLINDER (110 KV CLASS) O"
+                    ],
+                    "b_total_quantity": [
+                        100
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        4
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        1
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-05T15:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:04:59Z"
+                    ],
+                    "b_is_custom_item": [
+                        1
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7768907"
+                    ],
+                    "b_id_parent": [
+                        9586125
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_univ_univ_univ_univ"
+                    ],
+                    "b.b_created_by": [
+                        "buyer195.bhelb.mp"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Heavy Industries and Public Enterprises"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Heavy Industry"
+                    ]
+                },
+                {
+                    "id": "9706229",
+                    "b_id": [
+                        9706229
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710618"
+                    ],
+                    "b_category_name": [
+                        "Monthly Basis Cab & Taxi Hiring Services - MUV; 2000 km x 320 hours; Outstation 24*7"
+                    ],
+                    "b_total_quantity": [
+                        5
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        1
+                    ],
+                    "b_type": [
+                        1
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        0
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-05T14:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:05:13Z"
+                    ],
+                    "bd_category_name": [
+                        "Monthly Basis Cab & Taxi Hiring Services - MUV; 2000 km x 320 hours; Outstation 24*7"
+                    ],
+                    "b_is_custom_item": [
+                        0
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7767394"
+                    ],
+                    "b_id_parent": [
+                        9584373
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "services_home_ve54336454_mont"
+                    ],
+                    "b.b_created_by": [
+                        "tho-gandhidham"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_deptName": [
+                        "Panchayats and Rural Housing Department Gujarat"
+                    ]
+                },
+                {
+                    "id": "9702573",
+                    "b_id": [
+                        9702573
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710168"
+                    ],
+                    "b_category_name": [
+                        "JACKET DIGITAL CAMOUFLAGE SIZE S,JACKET DIGITAL CAMOUFLAGE SIZE M,JACKET DIGITAL CAMOUFLAGE SIZE L,"
+                    ],
+                    "b_total_quantity": [
+                        14200
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        8
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        0
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-04T18:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:09:22Z"
+                    ],
+                    "bd_category_name": [
+                        "JACKET DIGITAL CAMOUFLAGE SIZE S,JACKET DIGITAL CAMOUFLAGE SIZE M,JACKET DIGITAL CAMOUFLAGE SIZE L,JACKET DIGITAL CAMOUFLAGE SIZE XL,TROUSER DIGITAL CAMOUFLAGE SIZE S,TROUSER DIGITAL CAMOUFLAGE SIZE M,TROUSER DIGITAL CAMOUFLAGE SIZE L,TROUSER DIGITAL CAMOUFLAGE SIZE XL"
+                    ],
+                    "b_is_custom_item": [
+                        0
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7436747"
+                    ],
+                    "b_id_parent": [
+                        9214361
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_boq_boql_boql_boq"
+                    ],
+                    "b.b_created_by": [
+                        "Oic_clothing"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Defence"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Military Affairs"
+                    ],
+                    "bd_details_is_boq": [
+                        true
+                    ],
+                    "bd_details_new_boq": [
+                        true
+                    ]
+                },
+                {
+                    "id": "9698295",
+                    "b_id": [
+                        9698295
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/709487"
+                    ],
+                    "b_category_name": [
+                        "Procurment of current meter"
+                    ],
+                    "b_total_quantity": [
+                        27
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        1
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        0
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-04T11:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:10:08Z"
+                    ],
+                    "bd_category_name": [
+                        "Procurment of current meter"
+                    ],
+                    "b_is_custom_item": [
+                        1
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7169747"
+                    ],
+                    "b_id_parent": [
+                        8906990
+                    ],
+                    "is_high_value": [
+                        true
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_univ_univ_univ_univ"
+                    ],
+                    "b.b_created_by": [
+                        "cdrproc1.gem"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Defence"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Military Affairs"
+                    ]
+                },
+                {
+                    "id": "9701367",
+                    "b_id": [
+                        9701367
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710025"
+                    ],
+                    "b_category_name": [
+                        "ACETONE-N6810-000008,ALCOHOL ETHYL ABSOLUTE (IN 1LTR BOTTLE) -N6810-000041"
+                    ],
+                    "b_total_quantity": [
+                        15070
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        2
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        1
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-04T16:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:10:21Z"
+                    ],
+                    "b_is_custom_item": [
+                        1
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7288833"
+                    ],
+                    "b_id_parent": [
+                        9042560
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_univ_univ_univ_univ"
+                    ],
+                    "b.b_created_by": [
+                        "DCPRO_N5"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Defence"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Military Affairs"
+                    ]
+                },
+                {
+                    "id": "9706577",
+                    "b_id": [
+                        9706577
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710674"
+                    ],
+                    "b_category_name": [
+                        "Toner Cartridges / Ink Cartridges / Consumables for Printers"
+                    ],
+                    "b_total_quantity": [
+                        400
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        1
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        0
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-05T15:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:10:31Z"
+                    ],
+                    "bd_category_name": [
+                        "Toner Cartridges / Ink Cartridges / Consumables for Printers"
+                    ],
+                    "b_is_custom_item": [
+                        0
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7801155"
+                    ],
+                    "b_id_parent": [
+                        9622727
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_offi_offi_prin_tone"
+                    ],
+                    "b.b_created_by": [
+                        "OfficeAdmn.2"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Cabinet Secretariat"
+                    ],
+                    "ba_official_details_deptName": [
+                        "NA"
+                    ]
+                },
+                {
+                    "id": "9706786",
+                    "b_id": [
+                        9706786
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710699"
+                    ],
+                    "b_category_name": [
+                        "Camera for CCTV System (V3)"
+                    ],
+                    "b_total_quantity": [
+                        4
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        1
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        0
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-05T15:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:10:34Z"
+                    ],
+                    "bd_category_name": [
+                        "Camera for CCTV System (V3)"
+                    ],
+                    "b_is_custom_item": [
+                        0
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7834816"
+                    ],
+                    "b_id_parent": [
+                        9661387
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_lawe_secu_surv_ca82087436"
+                    ],
+                    "b.b_created_by": [
+                        "Buyer4Regt221"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Defence"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Military Affairs"
+                    ]
+                },
+                {
+                    "id": "9706602",
+                    "b_id": [
+                        9706602
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710679"
+                    ],
+                    "b_category_name": [
+                        "DGCA Certified drone training node (RPTO-Remote Pilot Training organisation)"
+                    ],
+                    "b_total_quantity": [
+                        1
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        1
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        0
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-05T15:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:11:02Z"
+                    ],
+                    "bd_category_name": [
+                        "DGCA Certified drone training node (RPTO-Remote Pilot Training organisation)"
+                    ],
+                    "b_is_custom_item": [
+                        1
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7385072"
+                    ],
+                    "b_id_parent": [
+                        9155703
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_univ_univ_univ_univ"
+                    ],
+                    "b.b_created_by": [
+                        "procurementcell@"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Defence"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Military Affairs"
+                    ]
+                },
+                {
+                    "id": "9705811",
+                    "b_id": [
+                        9705811
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710586"
+                    ],
+                    "b_category_name": [
+                        "Electrocardiography (ECG) Machine (V2)"
+                    ],
+                    "b_total_quantity": [
+                        1
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        1
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        0
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-05T13:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:11:30Z"
+                    ],
+                    "bd_category_name": [
+                        "Electrocardiography (ECG) Machine (V2)"
+                    ],
+                    "b_is_custom_item": [
+                        0
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2026/B/7551672"
+                    ],
+                    "b_id_parent": [
+                        9342129
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_medi_pa46613086_el02415062_el56216442"
+                    ],
+                    "b.b_created_by": [
+                        "SMO56ASP"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Defence"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Military Affairs"
+                    ]
+                },
+                {
+                    "id": "9703928",
+                    "b_id": [
+                        9703928
+                    ],
+                    "b_bid_number": [
+                        "GEM/2026/R/710382"
+                    ],
+                    "b_category_name": [
+                        "NEOPRENE RUBBER 1/8\u201d,NEOPRENE RUBBER 5/16\u2019 \u2019 (8MM),JOINTING OIL PROFF,JOINTING OIL PROFF,HENL"
+                    ],
+                    "b_total_quantity": [
+                        36230
+                    ],
+                    "b_status": [
+                        1
+                    ],
+                    "b_bid_type": [
+                        2
+                    ],
+                    "b_is_bunch": [
+                        24
+                    ],
+                    "b_type": [
+                        0
+                    ],
+                    "b_bid_to_ra": [
+                        1
+                    ],
+                    "b_buyer_status": [
+                        0
+                    ],
+                    "b_eval_type": [
+                        1
+                    ],
+                    "final_start_date_sort": [
+                        "2026-08-05T10:00:00Z"
+                    ],
+                    "final_end_date_sort": [
+                        "2026-08-06T15:11:36Z"
+                    ],
+                    "b_is_custom_item": [
+                        1
+                    ],
+                    "b_bid_number_parent": [
+                        "GEM/2025/B/7003984"
+                    ],
+                    "b_id_parent": [
+                        8717099
+                    ],
+                    "is_high_value": [
+                        false
+                    ],
+                    "b_ra_to_bid": [
+                        1
+                    ],
+                    "ra_b_status": [
+                        1
+                    ],
+                    "b_is_inactive": [
+                        0
+                    ],
+                    "ra_b_buyer_status": [
+                        2
+                    ],
+                    "b_cat_id": [
+                        "home_univ_univ_univ_univ"
+                    ],
+                    "b.b_created_by": [
+                        "DCPRO_N5"
+                    ],
+                    "ba_is_single_packet": [
+                        0
+                    ],
+                    "ba_is_global_tendering": [
+                        0
+                    ],
+                    "is_rc_bid": [
+                        0
+                    ],
+                    "ba_official_details_minName": [
+                        "Ministry of Defence"
+                    ],
+                    "ba_official_details_deptName": [
+                        "Department of Military Affairs"
+                    ]
+                }
+            ]
+        }
+    }
+}
